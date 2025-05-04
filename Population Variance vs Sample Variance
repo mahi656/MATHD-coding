@@ -1,0 +1,15 @@
+import random
+n = int(input())
+population = [int(i) for i in input().split()]
+
+pmean = sum(population) / n
+pvar = round(sum([(i - pmean) ** 2 for i in population]) / n, 2)
+
+k = int(input())
+random.seed(42)
+sample = random.sample(population, k)
+smean = sum(sample) / k
+sample_var = round(sum([(i - smean) ** 2 for i in sample]) / (k - 1), 2)
+
+print(pvar)
+print(sample_var)
