@@ -1,0 +1,18 @@
+import random
+import statistics
+
+n, k = map(int, input().split())
+
+random.seed(42)
+
+data = [random.uniform(20, 80) for _ in range(n)]
+
+sample_means = []
+for _ in range(k):
+    sample = [random.choice(data) for _ in range(n)]
+    sample_mean = sum(sample) / n
+    sample_means.append(sample_mean)
+
+standard_error = statistics.stdev(sample_means)
+
+print(round(standard_error, 2))
