@@ -1,0 +1,17 @@
+import random
+#write entire code below
+random.seed(42)
+n = int(input())
+population = [random.randint(1, 100) for _ in range(n)]
+population_mean = sum(population) / n
+
+s = 1
+while s <= n:
+    sample = random.choices(population, k = s)
+    sample_mean = sum(sample) / s 
+    if abs(sample_mean - population_mean) <= 0.5:
+        print(f"LLN holds at sample size {s}")
+        break
+    s *= 10
+else:
+    print("LLN doesn't hold")
