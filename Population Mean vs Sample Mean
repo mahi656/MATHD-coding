@@ -1,0 +1,14 @@
+import random
+#write your complete code below
+n, k = map(int, input().split())
+arr = [int(i) for i in input().split()]
+
+a_mean = sum(arr) / n 
+
+random.seed(42)
+sam = random.sample(arr, k)
+
+s_mean = sum(sam) / k
+
+print(round(a_mean, 2))
+print(round(s_mean, 2))
