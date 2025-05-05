@@ -1,0 +1,21 @@
+You are given an array of integers and an integer k,
+ which represents the size of the sliding window. Write a program
+ to calculate the median of each window of size k as it slides from the beginning to the end of the array. 
+The program should output the median for each window as a list of floating-point numbers.
+
+
+
+
+
+n = int(input())
+lis = list(map(int,input().split()))
+k = int(input())
+medians = []
+for i in range(n - k + 1):
+    w = sorted(lis[i : i + k])
+    if k % 2 == 1:
+        medians.append(float(w[k // 2]))
+    else:
+        medians.append((w[k // 2 - 1] + w[k // 2]) / 2)
+for median in medians:
+    print(median)
