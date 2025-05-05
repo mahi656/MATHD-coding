@@ -1,0 +1,6 @@
+def remove_outliers(data_list):
+    ans = []
+    for x in data_list:
+        if abs(x-mean(data_list)<=2*(variance(data_list)**0.5)):
+            ans.append(x)
+    return ans
