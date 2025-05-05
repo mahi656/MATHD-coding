@@ -1,0 +1,7 @@
+from scipy.stats import rv_discrete
+x = int(input())
+l = [float(i) for i in input().split()]
+
+s = round(sum(l), 6)
+
+print(round(l[x - 1], 6) if 0 <= abs(s - 1.0) <= 0.1 else -1.0)
