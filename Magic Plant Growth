@@ -1,0 +1,4 @@
+def expected_plant_growth(a, b, p, q, d):
+    # return expected value rounded upto 6 decimals
+    ans = (p * a) + (q * b)
+    print(round(ans ** d, 6))
