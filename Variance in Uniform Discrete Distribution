@@ -1,0 +1,13 @@
+Given a uniform discrete distribution over the integers from a to b (inclusive), Calculate the variance of the distribution.
+
+Input
+Complete a function def calculate_variance(a, b): which contains two parameters as follows:
+a and b (1 ≤ a ≤ b ≤ 10^5).
+Output
+return a single floating-point number: the variance of the uniform discrete distribution, rounded to 2 decimal places, (using round() function)
+
+
+
+
+def calculate_variance(a, b):
+    return round((((b - a + 1) ** 2 - 1) / 12), 2)
