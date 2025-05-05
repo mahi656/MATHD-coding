@@ -1,0 +1,14 @@
+Variance in Bernoulli Distribution
+Time Limit: 2, Memory Limit: 256000
+Given a Bernoulli distribution with probability p of success calculate the variance of the distribution.
+
+Input
+Complete a function def calculate_variance(p): which receives a single floating-point value p (0 ≤ p ≤ 1), representing the probability of success in the Bernoulli trial as parameter
+Output
+return a single floating-point number: the variance of the Bernoulli distribution, rounded upto 2 decimal places (using round() function)
+
+
+
+
+def calculate_variance(p):
+    return round(p * (1 - p), 2)
