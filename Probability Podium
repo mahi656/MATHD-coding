@@ -1,0 +1,17 @@
+def calculate_probabilities(n, i, g, r):
+    if not (3 <= n and 1 <= i <= n and g <= n and 0 <= r <= min(g, 3)):
+        print(-1)
+        return
+    
+    p1 = 3 / n  
+    
+    total_ways = n * (n - 1) * (n - 2) / 6 
+    favorable_ways = (g * (g - 1) * (g - 2) / 6 if r == 3 else 
+                      g * (g - 1) / 2 * (n - g) if r == 2 else 
+                      g * (n - g) * (n - g - 1) / 2 if r == 1 else 
+                      (n - g) * (n - g - 1) * (n - g - 2) / 6)
+    p2 = favorable_ways / total_ways
+    
+    print(f"{p1:.6f} {p2:.6f}")
+n, i, g, r = map(int, input().split())
+calculate_probabilities(n, i, g, r)
