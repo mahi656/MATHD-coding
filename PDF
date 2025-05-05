@@ -1,0 +1,4 @@
+import scipy
+from scipy.stats import norm
+def compute_pdf(x, mu, sigma):
+    return round(scipy.stats.norm.pdf(x, mu, sigma), 4)
