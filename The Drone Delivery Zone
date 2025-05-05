@@ -1,0 +1,20 @@
+def calculate_non_collision_probability(k):
+    total_positions = k * k
+    total_pairs = total_positions * (total_positions - 1) / 2  # Total ways to place two drones
+
+    moves = [(2, 1), (2, -1), (-2, 1), (-2, -1), (1, 2), (1, -2), (-1, 2), (-1, -2)]
+    
+    attack_pairs = 0
+    for x in range(k):
+        for y in range(k):
+            for dx, dy in moves:
+                nx, ny = x + dx, y + dy
+                if 0 <= nx < k and 0 <= ny < k:
+                    attack_pairs += 1
+    
+    attack_pairs /= 2 
+    non_collision_probability = (total_pairs - attack_pairs) / total_pairs
+    
+    print(round(non_collision_probability, 6))
+k = int(input())
+calculate_non_collision_probability(k)
