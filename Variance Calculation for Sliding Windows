@@ -1,0 +1,26 @@
+def sliding_window_variance(nums, k):
+    n = len(arr)
+    pre_sum = [0] * (n + 1)
+    pre_sum[0] = arr[0]
+    for i in range(1, n):
+        pre_sum[i] = pre_sum[i - 1] + nums[i]
+
+    pre_sq = [0] * (n + 1)
+    pre_sq[0] = nums[0] * nums[0]
+    for i in range(1, n):
+        pre_sq[i] = pre_sq[i - 1] + nums[i] * nums[i]
+    
+    def mean(l, r):
+        return (pre_sum[r] - pre_sum[l - 1]) / k
+    
+    def var(mean, l, r):
+        return ((pre_sq[r] - pre_sq[l - 1]) - k * mean * mean) / k
+    
+    ans = []
+    l = 0
+    for r in range(k - 1, n):
+        mu = mean(l, r)
+        sigma_sq = var(mu, l, r)
+        ans.append(round(sigma_sq, 4))
+        l += 1
+    return ans
