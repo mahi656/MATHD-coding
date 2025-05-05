@@ -1,0 +1,50 @@
+A university wants to conduct a survey to analyze student satisfaction. There are N students, and they need to select M students for the survey using systematic sampling.
+
+Systematic Sampling Process:
+
+Set a fixed seed for reproducibility using random.seed(42).
+Compute K as:  K = ⌊ N / M ⌋
+If K ≥ 2:
+Randomly select a starting index S within the first K students using random.randint(0, K-1).
+Pick every K-th student from the list until exactly M students are selected.
+If K < 2:
+The starting index S is randomly chosen from 0 ≤ S ≤ N - M using random.randint(0, N-M).
+Select the next M consecutive students starting from S.
+Input
+The first line contains two integers:
+N  M
+Constraints:
+1 ≤ M ≤ N ≤ 102
+
+The second line contains N space-separated integers, representing the unique student IDs.
+Output
+Print M integers representing the selected student IDs in order.
+
+
+
+
+
+
+
+
+
+
+import random
+random.seed(42)
+N, M = map(int, input().split())
+students = list(map(int, input().split()))
+
+K = N // M
+
+selected = []
+
+if K >= 2:
+    S = random.randint(0, K - 1)
+
+    for i in range(M):
+        idx = S + i * K
+        selected.append(students[idx])
+else:
+    S = random.randint(0, N - M)
+    selected = students[S:S+M]
+print(*selected)
